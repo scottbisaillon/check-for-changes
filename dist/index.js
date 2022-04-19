@@ -46,7 +46,7 @@ const git = (0, simple_git_1.default)({ baseDir });
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         git.tags((err, tags) => {
-            core.debug(tags.all.join(', '));
+            core.info(tags.all.join(', '));
         });
     });
 }

@@ -7,7 +7,7 @@ const git = simpleGit({baseDir})
 
 async function run(): Promise<void> {
   git.tags((err, tags) => {
-    core.debug(tags.all.join(', '))
+    core.info(tags.all.join(', '))
   })
 }
 
