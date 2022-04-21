@@ -1,6 +1,13 @@
 name: 'Scott Bisaillon'
 description: 'Checks if there have been changes since the last commit.'
 author: 'Scott Bisaillon'
+
+inputs:
+  filesGlob:
+    description: Glob pattern to check for changed files.
+    required: false
+    default: '**'
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
