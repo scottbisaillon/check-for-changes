@@ -2,29 +2,27 @@
   "name": "check-for-changes",
   "version": "1.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "Github Action that checks if there have been changes since the last commit for specified files.",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
-    "package": "ncc build --source-map --license licenses.txt",
-    "build_and_package": "npm run build && npm run package",
+    "package": "ncc build src/index.ts --source-map --license licenses.txt --minify",
     "test": "jest",
-    "all": "npm run build && npm run format && npm run lint && npm run package && npm test",
-    "run": "node dist/index.js"
+    "all": "npm run build && npm run format && npm run lint && npm run package"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/scottbisaillon/check-for-changes"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "",
+  "author": "Scott Bisaillon",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.6.0",
@@ -33,6 +31,7 @@
     "simple-git": "^3.7.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "@types/minimatch": "^3.0.5",
     "@types/node": "^16.10.5",
     "@typescript-eslint/parser": "^5.8.1",
