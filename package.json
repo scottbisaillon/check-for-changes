@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Github Action that checks if there have been changes since the last commit for specified files.",
-  "main": "lib/main.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",
