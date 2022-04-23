@@ -13,7 +13,7 @@ export default async function checkIfFilesChanged(): Promise<void> {
   core.debug(`inputs: ${JSON.stringify(config)}`);
   const result = await git.tags();
   core.debug(`tags: ${JSON.stringify(result)}`);
-  if (result.all.length < 0) {
+  if (result.all.length === 0) {
     core.debug('no tags found, setting changes=true');
     core.setOutput('first_tag', true);
     core.setOutput('changes', true);

@@ -1,7 +1,5 @@
 import checkIfFilesChanged from './lib';
 
-async function run(): Promise<void> {
+(async () => {
   await checkIfFilesChanged();
-}
-
-run();
+})();
