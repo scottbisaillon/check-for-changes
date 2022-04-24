@@ -5,11 +5,11 @@
   "description": "Github Action that checks if there have been changes since the last commit for specified files.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt --minify",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
-    "package": "ncc build src/index.ts --source-map --license licenses.txt --minify",
+    "package": "ncc build src/index.ts -o dist --source-map --license licenses.txt --minify",
     "test": "jest",
     "all": "npm run build && npm run format && npm run lint && npm run package"
   },
