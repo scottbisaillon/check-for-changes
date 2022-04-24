@@ -5,15 +5,11 @@ on:
     types: [published, edited]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  actions-tagger:
+    runs-on: windows-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: Actions-R-Us/actions-tagger@v1
         with:
-          ref: ${{ github.event.release.tag_name }}
-      - name: Install deps and build
-        run: npm ci && npm run package
-      - uses: JasonEtco/build-and-tag-action@v2
+          publish_latest: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
