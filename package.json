@@ -1,6 +1,6 @@
 {
   "name": "check-for-changes",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "description": "Github Action that checks if there have been changes since the last commit for specified files.",
   "main": "lib/index.js",

@@ -20,8 +20,11 @@ export default async function checkIfFilesChanged(): Promise<void> {
   } else {
     const previousTag = result.latest;
     const diffResult = await git.diffSummary(`${previousTag}`);
+    core.debug(`diffResult: ${JSON.stringify(diffResult)}`);
 
     const files = diffResult.files.map(v => v.file);
+    core.debug(`changed files: [${files.join(', ')}]`);
+
     const changed = minimatch.match(files, config.filesGlob).length > 0;
     core.debug(`setting changes=${changed}`);
     core.setOutput('changes', changed);
